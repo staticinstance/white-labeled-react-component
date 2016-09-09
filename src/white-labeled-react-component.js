@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class WhiteLabeledComponent extends Component {
+class WhiteLabeledReactComponent extends Component {
   constructor(props){
     super(props);
     props.components.forEach((path) => this[this.getComponentName(path)] = null)
@@ -49,4 +49,4 @@ class WhiteLabeledComponent extends Component {
   }
 }
 
-export default WhiteLabeledComponent;
+export default WhiteLabeledReactComponent;
