@@ -22,28 +22,16 @@ class WhiteLabeledReactComponent extends Component {
   }
   //todo pass in array of components to require
   getWhitelabeledComponent(path){
+    if(!path){
+      return;
+    }
     const that = this;
     const name = this.getComponentName(path);
 
     //try to dynamically import the component
-    require.ensure([], function(require) {
-      try{
-        //check to see if there is an override for the portal
-        that[name] = require(path).default;
-      }catch(e){
-        //if import fails, show error
-        class NotFound extends Component {
-          render(){
-            return (
-              <div>Could not find {path}</div>
-            );
-          }
-        }
-        that[name] = NotFound;
-      }
+    that[name] = require(path).default;
 
-      that.forceUpdate()
-    })
+    that.forceUpdate()
   }
 
   render(){
