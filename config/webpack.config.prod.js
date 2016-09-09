@@ -49,7 +49,7 @@ module.exports = {
     //chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath,
-    library: 'react-component-module',
+    library: 'white-labeled-react-component',
     libraryTarget: "umd"
   },
   resolve: {
