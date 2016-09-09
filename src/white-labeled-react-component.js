@@ -51,11 +51,12 @@ class WhiteLabeledReactComponent extends Component {
   }
 
   render(){
-    return (
-      <div>
-        Please override the render function!
-      </div>
-    );
+    return null;
+    // return (
+    //   <div>
+    //     Please override the render function!
+    //   </div>
+    // );
   }
 }
 
