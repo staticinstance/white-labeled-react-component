@@ -35,15 +35,14 @@ class WhiteLabeledReactComponent extends Component {
         that[name] = require(path).default;
       }catch(e){
         //if import fails, show error
-        // class NotFound extends Component {
-        //   render(){
-        //     return (
-        //       <div>Could not find {path}</div>
-        //     );
-        //   }
-        // }
-        // that[name] = NotFound;
-        console.log('could not find ', path);
+        class NotFound extends Component {
+          render(){
+            return (
+              <div>Could not find {path}</div>
+            );
+          }
+        }
+        that[name] = NotFound;
       }
 
       that.forceUpdate()
@@ -51,12 +50,11 @@ class WhiteLabeledReactComponent extends Component {
   }
 
   render(){
-    return null;
-    // return (
-    //   <div>
-    //     Please override the render function!
-    //   </div>
-    // );
+    return (
+      <div>
+        Please override the render function!
+      </div>
+    );
   }
 }
 
