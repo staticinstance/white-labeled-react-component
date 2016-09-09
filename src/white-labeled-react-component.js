@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 class WhiteLabeledReactComponent extends Component {
   constructor(props){
     super(props);
+    if(!props.components){
+      return;
+    }
     props.components.forEach((path) => this[this.getComponentName(path)] = null)
   }
 
@@ -10,8 +13,11 @@ class WhiteLabeledReactComponent extends Component {
     return path.replace(/\s+/g, '-').replace(/[^a-zA-Z-]/g, '').toLowerCase()
   }
 
-  componentWillMount(props){
+  componentWillMount(){
     //it is required that subclasses call super.componentWillMount();
+    if(!this.props.components){
+      return;
+    }
     this.props.components.forEach((cmp) => this.getWhitelabeledComponent(cmp));
   }
   //todo pass in array of components to require
